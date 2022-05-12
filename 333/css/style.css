@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* reset */
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #333;}
+li{list-style: none;}
+.clearfix::after{
+  content: "";
+  clear:both;
+  display: block;
+}
+
+/* layout */
+#wrap{
+  padding-top: 40px;
+  width: 1000px;
+  margin: 0 auto;
+}
+#aside{
+  float: left;
+  width: 270px;
+  background: skyblue;
+}
+#contents{
+  float: right;
+  width: 700px;
+  height: 200px;
+  background: pink;
+}
+#footer{
+  /* 형제중 형들 float 설정시
+  동생 반드시 float 설정되어야
+
+  형 float 설정 x
+  동생 float 설정
+  형은 float 설정 안해도 됨 */
+  float: left;
+  background: red;
+  width: 100%;
+}
+
+/* aside */
+#aside{}
+#aside h1{}
+#aside h1 a{}
+#aside h1 a img{width: 150px;}
+
+#aside .nav{}
+#aside .nav ul{
+}
+#aside .nav ul li{
+  position: relative;
+  padding: 10px;
+  padding-bottom: 15px;
+  background: #f1f1f1;
+}
+#aside .nav ul li a{
+  font-size: 23px;
+}
+#aside .nav ul li a:hover{
+  text-decoration: underline;
+}
+
+#aside .nav ul li ul.submenu{
+  display: none;
+  position: absolute; 
+  right: -131px; top: 0;}
+#aside .nav ul li ul.submenu li{padding: 0px;}
+#aside .nav ul li ul.submenu li a{
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+#aside .nav ul li ul.submenu li a:hover{
+  text-decoration: none;
+}
+
+/* content  */
+/* banner  */
+.banner{height: 384px;}
+.banner .slideList{position: relative;}
+.banner .slideList .slideImg{
+  position: absolute; left: 0; top: 0;}
+.banner .slideList .slideImg h2{
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px 30px;/* 공간 */
+  border-radius: 25px;/* 영역 모서리 라운드 */
+}
+.banner .slideList .slideImg img{
+  width: 100%; display: block;
+  /* 이미지 예측하지 못하는 공간 생길시 처리방법
+  -원인 : img=inline요소
+  1) display block
+  2) vertical-align:top */
+}
+
