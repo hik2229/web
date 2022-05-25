@@ -1,99 +1,159 @@
 @charset "UTF-8";
 
 /* reset */
-*{margin: 0; padding: 0;}
-a{text-decoration: none; color: #333;}
-li{list-style: none;}
-.clearfix::after{
+* {  margin: 0;  padding: 0;}
+a {  text-decoration: none;  color: #333;}
+li {  list-style: none;}
+.clearfix::after {
   content: "";
-  clear:both;
-  display: block;
-}
+  clear: both;
+  display: block;}
 
 /* layout */
-#wrap{
+#wrap {
   padding-top: 40px;
   width: 1000px;
   margin: 0 auto;
 }
-#aside{
+#aside {
   float: left;
   width: 270px;
-  background: skyblue;
 }
-#contents{
+#contents {
   float: right;
   width: 700px;
-  height: 200px;
-  background: pink;
 }
-#footer{
+#footer {
   /* 형제중 형들 float 설정시
   동생 반드시 float 설정되어야
-
   형 float 설정 x
   동생 float 설정
   형은 float 설정 안해도 됨 */
   float: left;
-  background: red;
   width: 100%;
 }
 
 /* aside */
-#aside{}
-#aside h1{}
-#aside h1 a{}
-#aside h1 a img{width: 150px;}
-
-#aside .nav{}
-#aside .nav ul{
-}
-#aside .nav ul li{
+#aside {}
+#aside h1 {}
+#aside h1 a {}
+#aside h1 a img {  width: 150px;}
+#aside .nav {}
+#aside .nav ul {}
+#aside .nav ul li {
   position: relative;
   padding: 10px;
   padding-bottom: 15px;
   background: #f1f1f1;
 }
-#aside .nav ul li a{
-  font-size: 23px;
-}
-#aside .nav ul li a:hover{
-  text-decoration: underline;
-}
-
-#aside .nav ul li ul.submenu{
+#aside .nav ul li a {  font-size: 23px;}
+#aside .nav ul li a:hover {  text-decoration: underline;}
+#aside .nav ul li ul.submenu {
   display: none;
-  position: absolute; 
-  right: -131px; top: 0;}
-#aside .nav ul li ul.submenu li{padding: 0px;}
-#aside .nav ul li ul.submenu li a{
+  position: absolute;
+  right: -131px;
+  top: 0;
+  z-index: 100;
+}
+#aside .nav ul li ul.submenu li {  padding: 0px;}
+#aside .nav ul li ul.submenu li a {
   display: block;
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
-#aside .nav ul li ul.submenu li a:hover{
-  text-decoration: none;
-}
+#aside .nav ul li ul.submenu li a:hover {  text-decoration: none;}
 
 /* content  */
 /* banner  */
-.banner{height: 384px;}
-.banner .slideList{position: relative;}
-.banner .slideList .slideImg{
-  position: absolute; left: 0; top: 0;}
-.banner .slideList .slideImg h2{
+.banner {  height: 384px;}
+.banner .slideList {  position: relative;}
+.banner .slideList .slideImg {
   position: absolute;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0,0,0,0.5);
-  padding: 10px 30px;/* 공간 */
-  border-radius: 25px;/* 영역 모서리 라운드 */
+  left: 0;
+  top: 0;
 }
-.banner .slideList .slideImg img{
-  width: 100%; display: block;
+.banner .slideList .slideImg h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 30px;
+  /* 공간 */
+  border-radius: 25px;
+  /* 영역 모서리 라운드 */
+}
+.banner .slideList .slideImg img {
+  width: 100%;
+  display: block;
   /* 이미지 예측하지 못하는 공간 생길시 처리방법
   -원인 : img=inline요소
   1) display block
   2) vertical-align:top */
 }
 
+/* tab */
+.tab {padding: 40px 0;position: relative;
+text-align: center; height: 200px;}
+.tab ul {}
+.tab>ul>li {display: inline; }
+.tab ul li a {font-size: 24px; color: #999;}
+.tab ul li.active a {color: #000;}
+.tab ul li ul{position: absolute; left: 0; top: 100px;
+width: 100%;}
+/* float, positioin:absolute,fixed.. 등은 영역을 자식만큼 차지
+그렇다고 inline요소 되는것은 아님 */
+.tab ul li ul li{float: left; width: 20%;}
+.tab ul li ul li a{font-size: 14px;}
+.tab ul li ul li a img{width: 100px;}
+.tab ul li ul li a span{display: block;}
+
+.tab ul li:last-child ul{display: none;}
+
+/* layer */
+.layer{background: #f7f7f7;
+padding: 15px;}
+.layer div{position: relative; float: left; width: 32%;
+box-sizing: border-box;
+/*  margin 이나 padding 이 가지고 있는 % 기준 = 부모 width 값 */
+margin-right: 2%;
+padding: 6% 3%;
+border: 2px solid #ccc;
+text-align: center;}
+.layer div:last-child{margin-right: 0;}
+.layer div h3{}
+.layer div img{width: 100px; padding: 20px 0;}
+.layer div ul{}
+.layer div ul li{
+  /* 말줄임말의 짝지 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.layer div a.more{
+  position: absolute;
+  top: 0; right: 0;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 15px; height: 15px;
+  line-height: 11px;
+}
+
+
+/* footer */
+#footer{
+  background: #edf2f8;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+#footer h2{float: left;}
+#footer img{width: 80px;}
+#footer address{float: left;
+font-style: normal; padding: 20px 0 0 20px;
+}
+#footer .sns{float: right; margin-top: 20px;}
+#footer .sns ul{}
+#footer .sns ul li{float: left;}
+#footer .sns ul li a{}
+#footer .sns ul li a img{width: 60px;}
